@@ -1,0 +1,9 @@
+name: remarkdown
+version: 0.1.0
+
+authors:
+  - Jason Lee <huacnlee@gmail.com>
+
+crystal: 0.21.1
+
+license: MIT
