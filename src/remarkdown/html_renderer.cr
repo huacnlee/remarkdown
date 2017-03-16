@@ -10,10 +10,12 @@ module Remarkdown
       @io << " id=\"#{heading_id}\">"
     end
 
-    # def begin_strikethrough
-    # end
-    #
-    # def end_strikethrough
-    # end
+    def begin_strikethrough
+      @io << "<del>"
+    end
+
+    def end_strikethrough
+      @io << "</del>"
+    end
   end
 end
