@@ -1,6 +1,8 @@
 Remarkdown
 ==========
 
+![Build status](https://travis-ci.org/huacnlee/remarkdown.svg?branch=master)
+
 This is extends of Markdown lib from Crystal Stdlib for Support Markdown GFM.
 
 ## Features
