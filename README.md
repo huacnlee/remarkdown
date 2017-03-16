@@ -3,6 +3,11 @@ Remarkdown
 
 This is extends of Markdown lib from Crystal Stdlib for Support Markdown GFM.
 
+## Features
+
+- `space_after_headers`
+- `strikethrough`
+
 ## Installation
 
 Add this to your application's `shard.yml`:
