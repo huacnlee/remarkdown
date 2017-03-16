@@ -7,9 +7,10 @@ This is extends of Markdown lib from Crystal Stdlib for Support Markdown GFM.
 
 ## Features
 
-- `space_after_headers` and
-- Add `id` attribute for Heading.
-- `strikethrough`
+- Built on Crystal stdlib [Markdown](https://crystal-lang.org/api/0.21.1/Markdown.html) to implement like Markdown GFM.
+- **space_after_headers** - `# Hello` not `#Hello`
+- Add `id` attribute for Heading `<h1 id="hello-world">Hello world</h1>`.
+- **strikethrough** : `~~Foo~~` to `<del>Foo</del>`
 
 ## Installation
 
