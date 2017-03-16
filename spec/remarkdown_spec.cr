@@ -37,28 +37,30 @@ describe Remarkdown do
 
   assert_render "`Hello`", "<p><code>Hello</code></p>"
 
-  assert_render "Hello\n=", "<h1>Hello</h1>"
-  assert_render "Hello\n===", "<h1>Hello</h1>"
-  assert_render "Hello\n===\nWorld", "<h1>Hello</h1>\n\n<p>World</p>"
-  assert_render "Hello\n===World", "<p>Hello\n===World</p>"
+  assert_render "Hello\n=", %(<h1 id="hello">Hello</h1>)
+  assert_render "你好\n===", %(<h1 id="你好">你好</h1>)
+  assert_render "Hello\n===\nWorld", %(<h1 id="hello">Hello</h1>\n\n<p>World</p>)
+  assert_render "Hello\n===World", %(<p>Hello\n===World</p>)
 
-  assert_render "Hello\n-", "<h2>Hello</h2>"
-  assert_render "Hello\n-", "<h2>Hello</h2>"
-  assert_render "Hello\n-World", "<p>Hello\n-World</p>"
+  assert_render "もしもし\n-", %(<h2 id="もしもし">もしもし</h2>)
+  assert_render "Hello\n-", %(<h2 id="hello">Hello</h2>)
+  assert_render "Hello\n-World", %(<p>Hello\n-World</p>)
 
   assert_render "#Hello", "<p>#Hello</p>"
-  assert_render "# Hello", "<h1>Hello</h1>"
-  assert_render "#    Hello", "<h1>Hello</h1>"
-  assert_render "## Hello", "<h2>Hello</h2>"
-  assert_render "### Hello", "<h3>Hello</h3>"
-  assert_render "#### Hello", "<h4>Hello</h4>"
-  assert_render "##### Hello", "<h5>Hello</h5>"
-  assert_render "###### Hello", "<h6>Hello</h6>"
-  assert_render "####### Hello", "<h6># Hello</h6>"
+  assert_render "# Hello", %(<h1 id="hello">Hello</h1>)
+  assert_render "# Hello & ? # world 你好", %(<h1 id="hello-world-你好">Hello & ? # world 你好</h1>)
+  assert_render "#    Hello", %(<h1 id="hello">Hello</h1>)
+  assert_render "## Hello", %(<h2 id="hello">Hello</h2>)
+  assert_render "### Hello", %(<h3 id="hello">Hello</h3>)
+  assert_render "#### Hello", %(<h4 id="hello">Hello</h4>)
+  assert_render "##### Hello", %(<h5 id="hello">Hello</h5>)
+  assert_render "###### Hello", %(<h6 id="hello">Hello</h6>)
+  assert_render "####### Hello", %(<h6 id="-hello"># Hello</h6>)
+  assert_render "###### Hello ?", %(<h6 id="hello-">Hello ?</h6>)
 
-  assert_render "Hello world\n==========", "<h1>Hello world</h1>"
+  assert_render "Hello world\n==========", %(<h1 id="hello-world">Hello world</h1>)
 
-  assert_render "# Hello\nWorld", "<h1>Hello</h1>\n\n<p>World</p>"
+  assert_render "# Hello\nWorld", %(<h1 id="hello">Hello</h1>\n\n<p>World</p>)
 
   assert_render "    Hello", "<pre><code>Hello</code></pre>"
   assert_render "    Hello\n    World", "<pre><code>Hello\nWorld</code></pre>"

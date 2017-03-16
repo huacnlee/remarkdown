@@ -1,13 +1,14 @@
 Remarkdown
 ==========
 
-![Build status](https://travis-ci.org/huacnlee/remarkdown.svg?branch=master)
+[![Build status](https://travis-ci.org/huacnlee/remarkdown.svg?branch=master)](https://travis-ci.org/huacnlee/remarkdown)
 
 This is extends of Markdown lib from Crystal Stdlib for Support Markdown GFM.
 
 ## Features
 
-- `space_after_headers`
+- `space_after_headers` and
+- Add `id` attribute for Heading.
 - `strikethrough`
 
 ## Installation

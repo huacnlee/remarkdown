@@ -1,13 +1,13 @@
-require "./renderer"
-
 module Remarkdown
-  class HTMLRenderer < Markdown::HTMLRenderer
-    include Remarkdown::Renderer
+  class HTMLRenderer
+    def initialize(@io : IO)
+    end
 
     def begin_header_with_id(level, line)
       @io << "<h"
       @io << level
-      @io << " id=\"#{line}\">"
+      heading_id = line.underscore.gsub(/[#?&_\s]+/, "-")
+      @io << " id=\"#{heading_id}\">"
     end
 
     # def begin_strikethrough

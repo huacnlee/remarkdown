@@ -1,7 +1,10 @@
 module Remarkdown
   class Parser < Markdown::Parser
-    def initialize(text : String, @renderer : Renderer, options)
-      @options = options || {
+    def initialize(text : String, io : IO)
+      @renderer = Markdown::HTMLRenderer.new(io)
+      @new_renderer = Remarkdown::HTMLRenderer.new(io)
+
+      @options = {
         strikethrough:       true,
         space_after_headers: true,
       }
@@ -65,7 +68,7 @@ module Remarkdown
     end
 
     def render_header(level, line, increment)
-      @renderer.begin_header level
+      @new_renderer.begin_header_with_id level, line
       process_line line
       @renderer.end_header level
       @line += increment
